@@ -8,7 +8,10 @@ export const postOrder = (req, res) => {
 
     sendCommandeOnFacturationQueue(pizza);
 
-
     res.send('Commande en cours d\'exécution');
 };
+
+export const handleOrder = ()=>{
+    console.log("Commande validé")
+}
 

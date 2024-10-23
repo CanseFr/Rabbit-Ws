@@ -1,4 +1,5 @@
 import amqp from "amqplib/callback_api.js";
+import {handleOrder} from "../service/index.js";
 
 export const sendCommandeOnFacturationQueue = (pizzaObject) => {
     amqp.connect('amqp://localhost', function(error0, connection) {
@@ -14,6 +15,8 @@ export const sendCommandeOnFacturationQueue = (pizzaObject) => {
             channel.assertQueue(queue, {
                 durable: false
             });
+
+            handleOrder()
 
             const message = JSON.stringify(pizzaObject);
             channel.sendToQueue(queue, Buffer.from(message));
