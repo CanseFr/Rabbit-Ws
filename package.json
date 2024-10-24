@@ -1,5 +1,5 @@
 {
-  "name": "untitled",
+  "name": "rabbitMq-ws-tuto",
   "version": "1.0.0",
   "type": "module",
   "main": "index.js",
@@ -13,6 +13,8 @@
   "description": "",
   "dependencies": {
     "amqplib": "^0.10.4",
-    "express": "^4.21.1"
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "ws": "^8.18.0"
   }
 }

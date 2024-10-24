@@ -1,5 +1,6 @@
 import amqp from "amqplib/callback_api.js";
 import {doDelivery, handleDelivery} from "../service/index.js";
+import {deliveryAlertOnSocket} from "../socket/index.js";
 
 const getCommandeFromQueue = () => {
     amqp.connect('amqp://localhost', (error0, connection) => {
@@ -22,7 +23,12 @@ const getCommandeFromQueue = () => {
                 console.log(" [x] Received pizza for delivery: %s", pizza);
 
                 handleDelivery(pizza);
-                doDelivery()
+
+                setTimeout(() => {
+                    doDelivery();
+                    const messageToSend = 'Commande effectuée';
+                    deliveryAlertOnSocket(messageToSend);
+                }, 5000);
             }, {
                 noAck: true
             });
@@ -31,5 +37,4 @@ const getCommandeFromQueue = () => {
 };
 
 
-
-export { getCommandeFromQueue };
+export {getCommandeFromQueue};
