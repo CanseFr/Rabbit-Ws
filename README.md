@@ -12,7 +12,7 @@ http://localhost:3000
     "name": "Chorizo",
     "prix": "10"
 }
-``` 
+```
 
 
 # interface admin Rabbit mq:
