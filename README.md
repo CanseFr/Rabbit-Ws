@@ -24,4 +24,4 @@ password : guest# Rabbit-Ws
 
 # Html
 
-Clique button and wait 5 sec for delivery
+Clique button and wait 5 sec for delivery.
